@@ -32,4 +32,13 @@ struct Book: Identifiable, Codable, Equatable {
 	var status: BookStatus
 	var startDate: Date?
 	var endDate: Date?
+	
+	// tracking progress
+	var readingEntries: [ReadingEntry] = []
+}
+
+struct ReadingEntry: Codable, Equatable, Identifiable {
+	let id : UUID
+	let date: Date
+	let page: Int
 }

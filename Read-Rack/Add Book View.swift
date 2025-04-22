@@ -46,8 +46,10 @@ struct AddBookView: View {
 						currentPage: 0,
 						status: .wantToRead,
 						startDate: nil,
-						endDate: nil
+						endDate: nil,
+						readingEntries: [ReadingEntry(id: UUID(), date: Date(), page: 0)]
 					)
+					
 					library.add(newBook)
 					dismiss()
 				}
