@@ -32,8 +32,8 @@
 		1CDF52732DB67B2000B660FF = {
 			isa = PBXGroup;
 			children = (
-				1CDF527E2DB67B2000B660FF /* Read-Rack */,
 				1CDF527D2DB67B2000B660FF /* Products */,
+				1CDF527E2DB67B2000B660FF /* Read-Rack */,
 			);
 			sourceTree = "<group>";
 		};
