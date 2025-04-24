@@ -20,7 +20,7 @@ struct StatisticsView: View {
 			let finished = library.books.filter { $0.status == .finished }.count
 			let pagesRead = library.books.filter { $0.status == .finished }.map { $0.pageCount }.reduce(0, +)
 
-			Text("Total Books: \(totalBooks)")
+			Text("Total Books in Library: \(totalBooks)")
 			Text("Finished: \(finished)")
 			Text("Pages Read: \(pagesRead)")
 		}
