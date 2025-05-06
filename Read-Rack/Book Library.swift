@@ -7,40 +7,70 @@
 
 import SwiftUI
 import Foundation
+import CoreData
 
-class BookLibrary: ObservableObject {
-	@Published var books: [Book] = [] {
-		didSet { saveBooks() }
+@Observable class BookLibrary {
+	var context = PersistenceController.shared.container.viewContext
+
+	public var books: [BookItem] = []
+//	{
+//		didSet { self.saveLibrary() }
+//	} // did set caller
+	public var readingEntries: [ReadingEntry] = []
+//	{
+//		didSet { self.saveLibrary() }
+//	} // did set caller
+	
+	public func delete(_ book : BookItem) {
+		context.delete(book)
 	}
 
-	init() {
-		loadBooks()
-	}
-
-	func add(_ book: Book) {
-		books.append(book)
-	}
-
-	func update(_ book: Book) {
-		if let index = books.firstIndex(where: { $0.id == book.id }) {
-			books[index] = book
+	public func saveLibrary() {
+		do {
+			try self.context.save()
+		} catch {
+			print(error)
 		}
+		
+		self.fetchBooks()
+		self.fetchEntries()
 	}
+	
+	@discardableResult func fetchBooks() -> [BookItem] {
 
-	func delete(at offsets: IndexSet) {
-		books.remove(atOffsets: offsets)
-	}
+		var booksArray : [BookItem] = []
 
-	private func saveBooks() {
-		if let data = try? JSONEncoder().encode(books) {
-			UserDefaults.standard.set(data, forKey: "books")
+		let fetchRequest: NSFetchRequest<BookItem>
+
+		fetchRequest = BookItem.fetchRequest()
+
+		do {
+			booksArray = try self.context.fetch(fetchRequest)
+		} catch {
+			print("Error fetching tasks")
 		}
-	}
 
-	private func loadBooks() {
-		if let data = UserDefaults.standard.data(forKey: "books"),
-		   let decoded = try? JSONDecoder().decode([Book].self, from: data) {
-			books = decoded
+		self.books = booksArray
+
+		return booksArray
+	}
+	
+	@discardableResult func fetchEntries() -> [ReadingEntry] {
+
+		var entriesArray : [ReadingEntry] = []
+
+		let fetchRequest: NSFetchRequest<ReadingEntry>
+
+		fetchRequest = ReadingEntry.fetchRequest()
+
+		do {
+			entriesArray = try self.context.fetch(fetchRequest)
+		} catch {
+			print("Error fetching tasks")
 		}
+
+		self.readingEntries = entriesArray
+
+		return entriesArray
 	}
 }

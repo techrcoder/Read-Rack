@@ -6,17 +6,37 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1CCFEA2F2DC28C8700AF2279 /* Add Book View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA222DC28C8700AF2279 /* Add Book View.swift */; };
+		1CCFEA302DC28C8700AF2279 /* Book Detail View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA242DC28C8700AF2279 /* Book Detail View.swift */; };
+		1CCFEA312DC28C8700AF2279 /* Book Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA252DC28C8700AF2279 /* Book Library.swift */; };
+		1CCFEA322DC28C8700AF2279 /* Book Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA262DC28C8700AF2279 /* Book Struct.swift */; };
+		1CCFEA332DC28C8700AF2279 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA272DC28C8700AF2279 /* ContentView.swift */; };
+		1CCFEA342DC28C8700AF2279 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA282DC28C8700AF2279 /* Persistence.swift */; };
+		1CCFEA352DC28C8700AF2279 /* Read_Rack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA2A2DC28C8700AF2279 /* Read_Rack.xcdatamodeld */; };
+		1CCFEA362DC28C8700AF2279 /* Read_RackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA2B2DC28C8700AF2279 /* Read_RackApp.swift */; };
+		1CCFEA372DC28C8700AF2279 /* Statistics Tab View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA2C2DC28C8700AF2279 /* Statistics Tab View.swift */; };
+		1CCFEA382DC28C8700AF2279 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCFEA202DC28C8700AF2279 /* Preview Assets.xcassets */; };
+		1CCFEA392DC28C8700AF2279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCFEA232DC28C8700AF2279 /* Assets.xcassets */; };
+		1CCFEA3B2DC2A85700AF2279 /* Book Detail - Edit Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA3A2DC2A85700AF2279 /* Book Detail - Edit Progress.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		1CCFEA202DC28C8700AF2279 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1CCFEA222DC28C8700AF2279 /* Add Book View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Book View.swift"; sourceTree = "<group>"; };
+		1CCFEA232DC28C8700AF2279 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CCFEA242DC28C8700AF2279 /* Book Detail View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book Detail View.swift"; sourceTree = "<group>"; };
+		1CCFEA252DC28C8700AF2279 /* Book Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book Library.swift"; sourceTree = "<group>"; };
+		1CCFEA262DC28C8700AF2279 /* Book Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book Struct.swift"; sourceTree = "<group>"; };
+		1CCFEA272DC28C8700AF2279 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1CCFEA282DC28C8700AF2279 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1CCFEA292DC28C8700AF2279 /* Read_Rack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Read_Rack.entitlements; sourceTree = "<group>"; };
+		1CCFEA2B2DC28C8700AF2279 /* Read_RackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Read_RackApp.swift; sourceTree = "<group>"; };
+		1CCFEA2C2DC28C8700AF2279 /* Statistics Tab View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statistics Tab View.swift"; sourceTree = "<group>"; };
+		1CCFEA2E2DC28C8700AF2279 /* Read_Rack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Read_Rack.xcdatamodel; sourceTree = "<group>"; };
+		1CCFEA3A2DC2A85700AF2279 /* Book Detail - Edit Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book Detail - Edit Progress.swift"; sourceTree = "<group>"; };
 		1CDF527C2DB67B2000B660FF /* Read-Rack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Read-Rack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		1CDF527E2DB67B2000B660FF /* Read-Rack */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Read-Rack";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1CDF52792DB67B2000B660FF /* Frameworks */ = {
@@ -29,11 +49,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CCFEA212DC28C8700AF2279 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1CCFEA202DC28C8700AF2279 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1CCFEA2D2DC28C8700AF2279 /* Read-Rack */ = {
+			isa = PBXGroup;
+			children = (
+				1CCFEA212DC28C8700AF2279 /* Preview Content */,
+				1CCFEA292DC28C8700AF2279 /* Read_Rack.entitlements */,
+				1CCFEA232DC28C8700AF2279 /* Assets.xcassets */,
+				1CCFEA2A2DC28C8700AF2279 /* Read_Rack.xcdatamodeld */,
+				1CCFEA272DC28C8700AF2279 /* ContentView.swift */,
+				1CCFEA2C2DC28C8700AF2279 /* Statistics Tab View.swift */,
+				1CCFEA222DC28C8700AF2279 /* Add Book View.swift */,
+				1CCFEA242DC28C8700AF2279 /* Book Detail View.swift */,
+				1CCFEA3A2DC2A85700AF2279 /* Book Detail - Edit Progress.swift */,
+				1CCFEA252DC28C8700AF2279 /* Book Library.swift */,
+				1CCFEA262DC28C8700AF2279 /* Book Struct.swift */,
+				1CCFEA282DC28C8700AF2279 /* Persistence.swift */,
+				1CCFEA2B2DC28C8700AF2279 /* Read_RackApp.swift */,
+			);
+			path = "Read-Rack";
+			sourceTree = "<group>";
+		};
 		1CDF52732DB67B2000B660FF = {
 			isa = PBXGroup;
 			children = (
 				1CDF527D2DB67B2000B660FF /* Products */,
-				1CDF527E2DB67B2000B660FF /* Read-Rack */,
+				1CCFEA2D2DC28C8700AF2279 /* Read-Rack */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,9 +107,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				1CDF527E2DB67B2000B660FF /* Read-Rack */,
 			);
 			name = "Read-Rack";
 			packageProductDependencies = (
@@ -109,6 +154,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CCFEA382DC28C8700AF2279 /* Preview Assets.xcassets in Resources */,
+				1CCFEA392DC28C8700AF2279 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +166,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CCFEA2F2DC28C8700AF2279 /* Add Book View.swift in Sources */,
+				1CCFEA302DC28C8700AF2279 /* Book Detail View.swift in Sources */,
+				1CCFEA312DC28C8700AF2279 /* Book Library.swift in Sources */,
+				1CCFEA322DC28C8700AF2279 /* Book Struct.swift in Sources */,
+				1CCFEA3B2DC2A85700AF2279 /* Book Detail - Edit Progress.swift in Sources */,
+				1CCFEA332DC28C8700AF2279 /* ContentView.swift in Sources */,
+				1CCFEA342DC28C8700AF2279 /* Persistence.swift in Sources */,
+				1CCFEA352DC28C8700AF2279 /* Read_Rack.xcdatamodeld in Sources */,
+				1CCFEA362DC28C8700AF2279 /* Read_RackApp.swift in Sources */,
+				1CCFEA372DC28C8700AF2279 /* Statistics Tab View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +396,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1CCFEA2A2DC28C8700AF2279 /* Read_Rack.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1CCFEA2E2DC28C8700AF2279 /* Read_Rack.xcdatamodel */,
+			);
+			currentVersion = 1CCFEA2E2DC28C8700AF2279 /* Read_Rack.xcdatamodel */;
+			path = Read_Rack.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1CDF52742DB67B2000B660FF /* Project object */;
 }

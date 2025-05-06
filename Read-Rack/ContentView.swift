@@ -7,72 +7,128 @@
 
 import SwiftUI
 import CoreData
-import Foundation
 
 struct ContentView: View {
-	@StateObject var library = BookLibrary()
-	@State private var selectedStatus: Book.BookStatus? = nil
+	@State var library : BookLibrary = BookLibrary()
+	
+	@State private var selectedStatus: BookStatus? = nil
 	@State private var searchText = ""
 
-	var filteredBooks: [Book] {
-		library.books.filter { book in
-			(selectedStatus == nil || book.status == selectedStatus) &&
-			(searchText.isEmpty || book.title.localizedCaseInsensitiveContains(searchText) || book.author.localizedCaseInsensitiveContains(searchText))
+	var filteredBooks: [BookItem] {
+		return library.books.filter { book in
+			(selectedStatus == nil || BookStatus(rawValue: book.status!) == selectedStatus) &&
+			(searchText.isEmpty || book.title!.localizedCaseInsensitiveContains(searchText) || book.author!.localizedCaseInsensitiveContains(searchText))
 		}
 	}
 
 	var body: some View {
 		TabView {
-			NavigationView {
-				VStack {
-					Picker("Status", selection: $selectedStatus) {
-						Text("All").tag(Book.BookStatus?.none)
-						ForEach(Book.BookStatus.allCases, id: \..self) { status in
-							Text(status.rawValue).tag(Optional(status))
-						}
-					}
-					.pickerStyle(SegmentedPickerStyle())
-					.padding()
-
-					List {
-						ForEach(filteredBooks) { book in
-							NavigationLink(destination: BookDetailView(book: book, library: library)) {
-								HStack {
-									VStack(alignment: .leading) {
-										Text(book.title).font(.headline)
-										Text(book.author).font(.subheadline).foregroundColor(.secondary)
-									}
-									Spacer()
-									Circle().fill(book.status.color).frame(width: 12, height: 12)
-								}
-							}
-						}
-						.onDelete(perform: library.delete)
-					}
-					.searchable(text: $searchText)
-				}
-				.navigationTitle("My Library")
-				.toolbar {
-					NavigationLink(destination: AddBookView(library: library)) {
-						Image(systemName: "plus")
-							.fontWeight(.bold)
-					}
-				}
-			}
+			mainView
 			.tabItem {
 				Label("Library", systemImage: "books.vertical")
 			}
 
-			StatisticsView(library: library)
+			statistics
 				.tabItem {
 					Label("Stats", systemImage: "chart.bar.xaxis")
 				}
 		}
-		.font(.custom("SF Pro Display", size: 17))	
+		.font(.custom("SF Pro Display", size: 17))
+		.onAppear(perform: {
+			loadView()
+		})
+		.environment(library)
+	}
+	
+	func loadView() {
+		library.fetchBooks()
+		library.fetchEntries()
+	}
+	
+	var mainView : some View {
+		NavigationView {
+			VStack {
+				picker
+
+				list
+			}
+			.navigationTitle("My Library")
+			.toolbar {
+				NavigationLink {
+					AddBookView()
+				} label: {
+					Image(systemName: "plus.circle.fill")
+						.fontWeight(.bold)
+						.shadow(radius: 3)
+				}
+			}
+		}
+	}
+	
+	var statistics : some View {
+		StatisticsView()
 	}
 }
 
-#Preview {
-    ContentView()
-		.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+extension ContentView {
+	private var picker : some View {
+		Picker("Status", selection: $selectedStatus) {
+//			VStack {
+				Text("All").tag(BookStatus?.none)
+				Text("Want to Read").tag(Optional(BookStatus.wantToRead))
+				Text("Reading").tag(Optional(BookStatus.reading))
+				Text("Finished").tag(Optional(BookStatus.finished))
+//			}
+		}
+		.pickerStyle(SegmentedPickerStyle())
+		.padding()
+	}
+	
+	private var list : some View {
+		List {
+			ForEach(filteredBooks, id: \.self) { book in
+				BookList_cellController(bookItem: book)
+			}
+		}
+		.searchable(text: $searchText)
+	}
+}
+
+struct BookList_cellController: View {
+	@State var bookItem : BookItem
+	
+	var body: some View {
+		NavigationLink {
+			BookDetailView(book: $bookItem)
+		} label: {
+			BookList_cellView(book: $bookItem)
+		}
+	}
+}
+
+struct BookList_cellView : View {
+	@Binding var book : BookItem
+	
+	@State var bookStatus : BookStatus = .wantToRead
+	
+	var body: some View {
+		HStack {
+			VStack(alignment: .leading) {
+				Text(book.title!)
+					.font(.headline)
+				Text(book.author!)
+					.font(.subheadline)
+					.foregroundColor(.secondary)
+			}
+			
+			Spacer()
+			
+			Circle()
+				.fill(bookStatus.color)
+				.frame(width: 12, height: 12)
+				.onAppear {
+					bookStatus = BookStatus(rawValue: book.status!)!
+				}
+		}
+	}
 }

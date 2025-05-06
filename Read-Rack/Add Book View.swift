@@ -10,8 +10,10 @@ import SwiftUI
 
 struct AddBookView: View {
 	@Environment(\.dismiss) var dismiss
-
-	@ObservedObject var library: BookLibrary
+	@Environment(BookLibrary.self) var library
+	
+	var context = PersistenceController.shared.container.viewContext
+	
 	@State private var title = ""
 	@State private var author = ""
 	@State private var pageCount = ""
@@ -37,21 +39,39 @@ struct AddBookView: View {
 		.toolbar {
 			ToolbarItem(placement: .confirmationAction) {
 				Button("Save") {
-					let newBook = Book(
-						id: UUID(),
-						title: title,
-						author: author,
-						pageCount: Int(pageCount) ?? 0,
-						notes: "",
-						currentPage: 0,
-						status: .wantToRead,
-						startDate: nil,
-						endDate: nil,
-						readingEntries: [ReadingEntry(id: UUID(), date: Date(), page: 0)]
-					)
+//					let newBook = Book(
+//						id: UUID(),
+//						title: title,
+//						author: author,
+//						pageCount: Int(pageCount) ?? 0,
+//						notes: "",
+//						currentPage: 0,
+//						status: .wantToRead,
+//						startDate: nil,
+//						endDate: nil,
+//						readingEntries: [ReadingEntry(id: UUID(), date: Date(), page: 0)]
+//					)
+//					
+//					library.add(newBook)
 					
-					library.add(newBook)
-					dismiss()
+					let newBook = BookItem(context: context)
+					newBook.title = title
+					newBook.author = author
+					newBook.pageCount = Int16(Int(pageCount) ?? 0)
+					newBook.currentPage = 0
+					newBook.status = "Want to Read"
+					newBook.addDate = Date()
+					newBook.startDate = nil
+					newBook.endDate = nil
+					newBook.id = UUID()
+					
+					do {
+						try context.save()
+						library.fetchBooks()
+						dismiss()
+					} catch {
+						print("Error")
+					}
 				}
 			}
 		}
