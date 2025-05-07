@@ -95,13 +95,35 @@ struct BookDetailView: View {
 					
 					Spacer()
 					
-					Button {
-						showEditList = true
-					} label: {
-						Text("Edit Points")
+					Group {
+						if UIDevice.current.userInterfaceIdiom == .pad {
+							Button {
+								showEditList.toggle()
+							} label: {
+								Text("Edit Points")
+							}
+							.fullScreenCover(isPresented: $showEditList) {
+								// on dismiss
+							} content: {
+								bookDetail_EditProgress(book: $book)
+							}
+
+							
+						} else if UIDevice.current.userInterfaceIdiom == .phone {
+							Button {
+								showEditList = true
+							} label: {
+								Text("Edit Points")
+							}
+							.sheet(isPresented: $showEditList) {
+								bookDetail_EditProgress(book: $book)
+							}
+						}
 					}
-					.sheet(isPresented: $showEditList) {
-						bookDetail_EditProgress(book: $book)
+					.onChange(of: showEditList) { oldValue, newValue in
+						if newValue == false {
+							readingEntries = getBookProgress()
+						}
 					}
 				}
 				

@@ -121,14 +121,45 @@ struct BookList_cellView : View {
 					.foregroundColor(.secondary)
 			}
 			
-			Spacer()
+			Spacer()			
 			
-			Circle()
-				.fill(bookStatus.color)
-				.frame(width: 12, height: 12)
-				.onAppear {
-					bookStatus = BookStatus(rawValue: book.status!)!
+			switch book.bookStatusEnum {
+			case .wantToRead:
+				Circle()
+					.fill(bookStatus.color)
+					.frame(width: 12, height: 12)
+					.onAppear {
+						bookStatus = BookStatus(rawValue: book.status!)!
+					}
+			case .reading:
+				HStack {
+					Text("\(Int(book.currentPage))/\(Int(book.pageCount))")
+						.font(.caption)
+						.fontDesign(.monospaced)
+					
+					Circle()
+						.fill(bookStatus.color)
+						.frame(width: 12, height: 12)
+						.onAppear {
+							bookStatus = BookStatus(rawValue: book.status!)!
+						}
 				}
+			case .finished:
+				HStack {
+					Image(systemName: "checkmark")
+						.font(.caption)
+						.foregroundStyle(bookStatus.color)
+					
+					Circle()
+						.fill(bookStatus.color)
+						.frame(width: 12, height: 12)
+						.onAppear {
+							bookStatus = BookStatus(rawValue: book.status!)!
+						}
+				}
+			}
+			
+			
 		}
 	}
 }

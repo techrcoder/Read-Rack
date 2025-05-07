@@ -39,21 +39,6 @@ struct AddBookView: View {
 		.toolbar {
 			ToolbarItem(placement: .confirmationAction) {
 				Button("Save") {
-//					let newBook = Book(
-//						id: UUID(),
-//						title: title,
-//						author: author,
-//						pageCount: Int(pageCount) ?? 0,
-//						notes: "",
-//						currentPage: 0,
-//						status: .wantToRead,
-//						startDate: nil,
-//						endDate: nil,
-//						readingEntries: [ReadingEntry(id: UUID(), date: Date(), page: 0)]
-//					)
-//					
-//					library.add(newBook)
-					
 					let newBook = BookItem(context: context)
 					newBook.title = title
 					newBook.author = author
@@ -73,6 +58,7 @@ struct AddBookView: View {
 						print("Error")
 					}
 				}
+				.disabled(Int(pageCount) == nil || title == "")
 			}
 		}
 	}
