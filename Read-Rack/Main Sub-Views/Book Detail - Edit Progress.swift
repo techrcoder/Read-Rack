@@ -11,7 +11,7 @@ import Charts
 
 struct bookDetail_EditProgress: View {
 	@Binding var book : BookItem
-	@Environment(BookLibrary.self) var library
+	@EnvironmentObject var library: BookLibrary
 	
 //	var readingEntries : [ReadingEntry] {
 //		let bookEntries = library.readingEntries.filter( { $0.book?.id == book.id })

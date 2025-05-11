@@ -9,17 +9,11 @@ import SwiftUI
 import Foundation
 import CoreData
 
-@Observable class BookLibrary {
+final class BookLibrary: ObservableObject {
 	var context = PersistenceController.shared.container.viewContext
 
-	public var books: [BookItem] = []
-//	{
-//		didSet { self.saveLibrary() }
-//	} // did set caller
-	public var readingEntries: [ReadingEntry] = []
-//	{
-//		didSet { self.saveLibrary() }
-//	} // did set caller
+	@Published public var books: [BookItem] = []
+	@Published public var readingEntries: [ReadingEntry] = []
 	
 	public func delete(_ book : BookItem) {
 		context.delete(book)

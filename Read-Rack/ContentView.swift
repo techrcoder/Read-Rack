@@ -9,8 +9,15 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-	@State var library : BookLibrary = BookLibrary()		
+	@StateObject var library : BookLibrary
+	@StateObject var readingStatsModel : ReadingStatsViewModel
 
+	init() {
+		let lib = BookLibrary()
+		_library = StateObject(wrappedValue: lib)
+		_readingStatsModel = StateObject(wrappedValue: ReadingStatsViewModel(library: lib))
+	}
+	
 	var body: some View {
 		TabView {
 			MainView()
@@ -27,7 +34,8 @@ struct ContentView: View {
 		.onAppear(perform: {
 			loadView()
 		})
-		.environment(library)
+		.environmentObject(library)
+		.environmentObject(readingStatsModel)
 	}
 	
 	func loadView() {

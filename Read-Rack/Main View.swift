@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 struct MainView: View {
-	@Environment(BookLibrary.self) var library
+	@EnvironmentObject var library: BookLibrary
 	
 	@State private var selectedStatus: BookStatus? = nil
 	@State private var searchText = ""

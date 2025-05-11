@@ -18,7 +18,7 @@ extension BookItem {
 
 struct BookDetailView: View {
 	@Binding var book: BookItem
-	@Environment(BookLibrary.self) var library
+	@EnvironmentObject var library: BookLibrary
 	
 	var context = PersistenceController.shared.container.viewContext
 	

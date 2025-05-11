@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AddBookView: View {
 	@Environment(\.dismiss) var dismiss
-	@Environment(BookLibrary.self) var library
+	@EnvironmentObject var library: BookLibrary
 	
 	var context = PersistenceController.shared.container.viewContext
 	

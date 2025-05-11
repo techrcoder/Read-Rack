@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1CAE92DA2DD1459700C13D62 /* Main View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE92D92DD1459700C13D62 /* Main View.swift */; };
+		1CAE92DD2DD146E100C13D62 /* Avg Pages per Period View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE92DC2DD146E100C13D62 /* Avg Pages per Period View.swift */; };
+		1CAE92DF2DD1472400C13D62 /* Statistics Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE92DE2DD1472400C13D62 /* Statistics Model.swift */; };
+		1CAE92E22DD14E0F00C13D62 /* Pages Read Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE92E12DD14E0F00C13D62 /* Pages Read Functions.swift */; };
+		1CAE92E42DD155E100C13D62 /* Historical Tracking View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE92E32DD155E100C13D62 /* Historical Tracking View.swift */; };
 		1CCFEA2F2DC28C8700AF2279 /* Add Book View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA222DC28C8700AF2279 /* Add Book View.swift */; };
 		1CCFEA302DC28C8700AF2279 /* Book Detail View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA242DC28C8700AF2279 /* Book Detail View.swift */; };
 		1CCFEA312DC28C8700AF2279 /* Book Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFEA252DC28C8700AF2279 /* Book Library.swift */; };
@@ -24,6 +28,10 @@
 
 /* Begin PBXFileReference section */
 		1CAE92D92DD1459700C13D62 /* Main View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Main View.swift"; sourceTree = "<group>"; };
+		1CAE92DC2DD146E100C13D62 /* Avg Pages per Period View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Avg Pages per Period View.swift"; sourceTree = "<group>"; };
+		1CAE92DE2DD1472400C13D62 /* Statistics Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statistics Model.swift"; sourceTree = "<group>"; };
+		1CAE92E12DD14E0F00C13D62 /* Pages Read Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pages Read Functions.swift"; sourceTree = "<group>"; };
+		1CAE92E32DD155E100C13D62 /* Historical Tracking View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Historical Tracking View.swift"; sourceTree = "<group>"; };
 		1CCFEA202DC28C8700AF2279 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1CCFEA222DC28C8700AF2279 /* Add Book View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Book View.swift"; sourceTree = "<group>"; };
 		1CCFEA232DC28C8700AF2279 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,14 +70,32 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		1CAE92D82DD1455C00C13D62 /* Book Views */ = {
+		1CAE92D82DD1455C00C13D62 /* Main Sub-Views */ = {
 			isa = PBXGroup;
 			children = (
 				1CCFEA222DC28C8700AF2279 /* Add Book View.swift */,
 				1CCFEA242DC28C8700AF2279 /* Book Detail View.swift */,
 				1CCFEA3A2DC2A85700AF2279 /* Book Detail - Edit Progress.swift */,
 			);
-			path = "Book Views";
+			path = "Main Sub-Views";
+			sourceTree = "<group>";
+		};
+		1CAE92DB2DD146BA00C13D62 /* Statistics Sub-Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CAE92DC2DD146E100C13D62 /* Avg Pages per Period View.swift */,
+				1CAE92E32DD155E100C13D62 /* Historical Tracking View.swift */,
+			);
+			path = "Statistics Sub-Views";
+			sourceTree = "<group>";
+		};
+		1CAE92E02DD14E0000C13D62 /* Statistics Methods */ = {
+			isa = PBXGroup;
+			children = (
+				1CAE92DE2DD1472400C13D62 /* Statistics Model.swift */,
+				1CAE92E12DD14E0F00C13D62 /* Pages Read Functions.swift */,
+			);
+			path = "Statistics Methods";
 			sourceTree = "<group>";
 		};
 		1CCFEA212DC28C8700AF2279 /* Preview Content */ = {
@@ -89,8 +115,10 @@
 				1CCFEA2B2DC28C8700AF2279 /* Read_RackApp.swift */,
 				1CCFEA272DC28C8700AF2279 /* ContentView.swift */,
 				1CAE92D92DD1459700C13D62 /* Main View.swift */,
+				1CAE92D82DD1455C00C13D62 /* Main Sub-Views */,
 				1CCFEA2C2DC28C8700AF2279 /* Statistics View.swift */,
-				1CAE92D82DD1455C00C13D62 /* Book Views */,
+				1CAE92E02DD14E0000C13D62 /* Statistics Methods */,
+				1CAE92DB2DD146BA00C13D62 /* Statistics Sub-Views */,
 				1CAE92D72DD1454800C13D62 /* Data */,
 			);
 			path = "Read-Rack";
@@ -190,10 +218,14 @@
 				1CCFEA312DC28C8700AF2279 /* Book Library.swift in Sources */,
 				1CCFEA322DC28C8700AF2279 /* Book Struct.swift in Sources */,
 				1CAE92DA2DD1459700C13D62 /* Main View.swift in Sources */,
+				1CAE92DD2DD146E100C13D62 /* Avg Pages per Period View.swift in Sources */,
+				1CAE92E22DD14E0F00C13D62 /* Pages Read Functions.swift in Sources */,
 				1CCFEA3B2DC2A85700AF2279 /* Book Detail - Edit Progress.swift in Sources */,
 				1CCFEA332DC28C8700AF2279 /* ContentView.swift in Sources */,
+				1CAE92E42DD155E100C13D62 /* Historical Tracking View.swift in Sources */,
 				1CCFEA342DC28C8700AF2279 /* Persistence.swift in Sources */,
 				1CCFEA352DC28C8700AF2279 /* Read_Rack.xcdatamodeld in Sources */,
+				1CAE92DF2DD1472400C13D62 /* Statistics Model.swift in Sources */,
 				1CCFEA362DC28C8700AF2279 /* Read_RackApp.swift in Sources */,
 				1CCFEA372DC28C8700AF2279 /* Statistics View.swift in Sources */,
 			);
