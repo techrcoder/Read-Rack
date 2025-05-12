@@ -28,6 +28,15 @@ struct StatisticsView: View {
 				AvgPagesPerDayView()
 				
 				HistoricalTrackingView()
+				
+				VStack (alignment: .center, spacing: 8) {
+					Text("More and More Stats Cells coming soon!")
+					Text("Feel free to send me emails @ rohanp.development@gmail.com for requests, ideas, and feedback! I'd greatly appreciate it. \n \n Best regards, -Rohan")
+						.italic()
+				}
+				.font(.caption)
+				.multilineTextAlignment(.center)
+				.padding(.horizontal, 30)
 			}
 			.padding()
 			.onChange(of: library.books) { _, newValue in
